@@ -2,7 +2,7 @@ CC=				gcc
 
 CFLAGS=			-Wall -Wextra -Werror
 
-BUFFER_SIZE=	10000000000
+BUFFER_SIZE=	1
 
 NAME=			get_next_line
 
