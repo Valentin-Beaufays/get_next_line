@@ -6,17 +6,15 @@
 /*   By: vbeaufay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 19:14:41 by vbeaufay          #+#    #+#             */
-/*   Updated: 2020/01/07 19:32:56 by vbeaufay         ###   ########.fr       */
+/*   Updated: 2020/01/08 18:13:30 by vbeaufay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 # include <limits.h>
 
 int		get_next_line(int fd, char **line);
