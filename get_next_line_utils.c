@@ -12,11 +12,12 @@
 
 #include "get_next_line.h"
 
-int		get_buffer(int fd, char *buf, size_t size)
+int	get_buffer(int fd, char *buf, size_t size)
 {
 	ssize_t	len;
 
-	if ((len = read(fd, buf, size)) == -1)
+	len = read(fd, buf, size);
+	if (len == -1)
 		return (-1);
 	buf[len] = 0;
 	return ((len != 0));
@@ -34,7 +35,7 @@ size_t	ft_strnllen(char *str)
 	return (i);
 }
 
-int		malloc_res(char **res, char *buf)
+int	malloc_res(char **res, char *buf)
 {
 	char	*new;
 	size_t	j;
@@ -42,8 +43,8 @@ int		malloc_res(char **res, char *buf)
 
 	i = 0;
 	j = 0;
-	if (!(new = malloc(sizeof(**res)
-					* (ft_strnllen(*res) + ft_strnllen(buf) + 1))))
+	new = malloc(sizeof(**res) * (ft_strnllen(*res) + ft_strnllen(buf) + 1));
+	if (!new)
 		return (0);
 	while (*res && (*res)[i])
 	{
@@ -63,7 +64,7 @@ int		malloc_res(char **res, char *buf)
 	return (1);
 }
 
-int		is_nl_into(char *str)
+int	is_nl_into(char *str)
 {
 	while (str && *str)
 	{
@@ -74,7 +75,7 @@ int		is_nl_into(char *str)
 	return (0);
 }
 
-int		reset_buffer(char *buf)
+int	reset_buffer(char *buf)
 {
 	size_t	i;
 	size_t	j;

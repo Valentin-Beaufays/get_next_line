@@ -12,11 +12,11 @@
 
 #include "get_next_line.h"
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	static	char	buf[OPEN_MAX][BUFFER_SIZE + 1];
-	char			*res;
-	int				eof;
+	static char	buf[OPEN_MAX][BUFFER_SIZE + 1];
+	char		*res;
+	int			eof;
 
 	res = 0;
 	eof = 1;
@@ -24,8 +24,8 @@ int		get_next_line(int fd, char **line)
 		return (-1);
 	while (eof > 0 && !is_nl_into(buf[fd]))
 	{
-		if ((eof = get_buffer(fd, buf[fd], BUFFER_SIZE)) == -1 ||
-				!(malloc_res(&res, buf[fd])))
+		eof = get_buffer(fd, buf[fd], BUFFER_SIZE);
+		if (eof == -1 || !(malloc_res(&res, buf[fd])))
 		{
 			free(res);
 			return (-1);
